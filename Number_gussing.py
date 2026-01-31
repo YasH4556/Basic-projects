@@ -20,6 +20,8 @@ print(random)
 
 #actual code for number guessing
 guess = None
+attempts = 0
+
 while (guess != random ):
     try:
         guess = int(input(f"Guess a number from {a} to {b} :"))
@@ -30,13 +32,17 @@ while (guess != random ):
         continue
     elif (guess == random ):
             print("Your guess was correct")
+            attempts += 1
     else :
         percent = (abs(guess - random) - 1)/(b-a+1)
+        attempts += 1
         if (percent <= 0.1):
-            print("Soo close! You were almost their")
+            print("Soo close! You were almost there")
         elif(percent <=0.5):
             print("Close! You can do better")
         elif (percent <= 0.75):
             print("Not close! Try again")
         else:
             print("Way off! You need to improve a lot")
+
+print(f"You did it in {attempts} attempts")
